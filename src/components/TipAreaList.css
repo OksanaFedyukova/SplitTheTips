@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+
+/* TipAreaList.css */
+
+.tip-area-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tip-area-container {
+  border-radius: 8px;
+  background-color: var(--clr-background); /* Cambiado al color de fondo principal */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Modificado el color de la sombra */
+  margin-top: 2rem;
+}
+
+.area-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.area-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--clr-text); /* Cambiado al color de texto principal */
+  font-family: "Kanit", sans-serif;
+}
+
+.delete-area-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4d4f; /* Cambiado al color secundario */
+  transition: color 0.5s ease;
+}
+
+.delete-area-button:hover {
+  color: #f58a8c; /* Color de botón de eliminación en hover */
+}
+
+.grid-container {
+  display: grid;
+  gap: 20px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--clr-text); /* Cambiado al color de texto principal */
+}
+
+.employee-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.employee-card {
+  border-radius: 8px;
+  background-color: #d5d7da6e; /* Cambiado al color de fondo principal */
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.377); /* Modificado el color de la sombra */
+}
+
+.employee-info p {
+  margin: 5px 0;
+  color: var(--clr-text); /* Cambiado al color de texto principal */
+  font-family: "Kanit", sans-serif;
+  font-size: 1rem;
+}
+
+.employee-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-actions button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.8s ease;
+  background-color: var(--clr-button); /* Cambiado al color de botón */
+  color: var(--clr-text); /* Cambiado al color de texto principal */
+  font-size: 14px;
+  font-family: "Kanit";
+}
+
+.employee-actions button:hover {
+  background-color: var(--clr-button-hover); /* Cambiado al color de botón en hover */
+}
+
+.employee-actions input {
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px rgba(40, 75, 190, 0.144);
+}

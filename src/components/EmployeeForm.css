@@ -1,0 +1,42 @@
+/* EmployeeForm.css */
+.employee-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.custom-select,
+.custom-input {
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.custom-input::placeholder {
+  color: #888;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+  border-color: var(--clr-input-border)
+}
+
+.custom-button {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+}

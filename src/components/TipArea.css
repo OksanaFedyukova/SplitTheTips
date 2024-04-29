@@ -1,0 +1,89 @@
+/* TipArea.css */
+
+.custom-tip-area {
+  border-radius: 8px;
+  background-color: var(--clr-form);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.tip-area-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.area-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--clr-text);
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--clr-secondary);
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: var(--clr-secondary);
+}
+
+.employee-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.employee-info {
+  border-radius: 8px;
+  background-color: var(--clr-list-item);
+  padding: 15px;
+  box-shadow: 0 2px 4px var(--clr-list-item-shadow);
+}
+
+.employee-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-name {
+  font-weight: bold;
+  color: var(--clr-text);
+}
+
+.hours-input {
+  padding: 8px;
+  border: 1px solid var(--clr-input-border);
+  border-radius: 4px;
+}
+
+.tips-amount {
+  margin: 5px 0;
+  color: var(--clr-text);
+}
+
+.details-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #a81414;
+  font-size: 0.9rem;
+}
+
+.hours-label,
+.tips-label {
+  flex-basis: 50%;
+}
+
+.hours-label {
+  text-align: left;
+}
+
+.tips-label {
+  text-align: right;
+}

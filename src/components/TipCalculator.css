@@ -1,0 +1,40 @@
+/* TipCalculator.css */
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.form-space {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-input {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    color: #333;
+    padding: 0.5rem;
+    outline: none;
+    width: 100%;
+}
+
+.form-input::placeholder {
+    color: #888;
+}
+
+.form-button {
+    background-color: #000000;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.form-button:hover {
+    background-color: #020202;
+}

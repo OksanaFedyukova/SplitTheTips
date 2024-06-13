@@ -1,5 +1,3 @@
-/* TipArea.css */
-
 .custom-tip-area {
   border-radius: 8px;
   background-color: var(--clr-form);
@@ -30,7 +28,7 @@
 }
 
 .delete-button:hover {
-  color: var(--clr-secondary);
+  color: var(--clr-secondary-hover); /* Ajuste para el color de hover */
 }
 
 .employee-list {
@@ -71,7 +69,7 @@
 .details-labels {
   display: flex;
   justify-content: space-between;
-  color: #a81414;
+  color: var(--clr-labels-text); /* Ajuste para el color de texto de etiquetas */
   font-size: 0.9rem;
 }
 

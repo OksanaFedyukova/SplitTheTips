@@ -1,4 +1,3 @@
-// TipArea.tsx
 import React from 'react';
 import { XCircle } from 'react-feather';
 import './TipArea.css';

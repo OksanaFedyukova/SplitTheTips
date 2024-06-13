@@ -1,4 +1,5 @@
 /* TipCalculator.css */
+
 .form-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -25,7 +26,7 @@
 }
 
 .form-button {
-    background-color: #000000;
+    background-color: #000;
     color: white;
     padding: 0.75rem;
     border-radius: 0.25rem;

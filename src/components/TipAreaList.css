@@ -61,7 +61,7 @@
 
 .employee-card {
   border-radius: 8px;
-  background-color: #d5d7da6e; /* Cambiado al color de fondo principal */
+  background-color: rgba(213, 215, 218, 0.427); /* Cambiado al color de fondo principal */
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.377); /* Modificado el color de la sombra */
 }
@@ -84,11 +84,11 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.8s ease;
+  transition: background-color 0.3s ease;
   background-color: var(--clr-button); /* Cambiado al color de botón */
   color: var(--clr-text); /* Cambiado al color de texto principal */
   font-size: 14px;
-  font-family: "Kanit";
+  font-family: "Kanit", sans-serif;
 }
 
 .employee-actions button:hover {
@@ -99,5 +99,5 @@
   margin-bottom: 5px;
   padding: 8px;
   border-radius: 10px;
-  border: 1px rgba(40, 75, 190, 0.144);
+  border: 1px solid rgba(40, 75, 190, 0.144); /* Modificado el color del borde */
 }

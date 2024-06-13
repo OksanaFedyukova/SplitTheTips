@@ -3,27 +3,66 @@ import { motion } from 'framer-motion';
 import { XCircle } from 'react-feather';
 import './TipAreaList.css';
 
+interface Employee {
+  nombre: string;
+  horas: number;
+  propinas: number;
+}
+
+interface AreaData {
+  porcentaje: number;
+  empleados: Employee[];
+}
+
 interface TipAreaListProps {
-  areas: Record<string, { porcentaje: number; empleados: { nombre: string; horas: number; propinas: number }[] }>;
+  areas: Record<string, AreaData>;
   eliminarArea: (nombreArea: string) => void;
   editarEmpleado: (area: string, index: number, field: string, value: string | number) => void;
   eliminarEmpleado: (area: string, index: number) => void;
 }
 
 const TipAreaList: React.FC<TipAreaListProps> = ({ areas, eliminarArea, editarEmpleado, eliminarEmpleado }) => {
-  const [editingEmployee, setEditingEmployee] = useState<{ area: string; index: number } | null>(null);
+  const [editingEmployeeIndex, setEditingEmployeeIndex] = useState<{ area: string; index: number } | null>(null);
 
   const handleEditEmployee = (area: string, index: number) => {
-    setEditingEmployee({ area, index });
+    setEditingEmployeeIndex({ area, index });
   };
 
   const cancelEditEmployee = () => {
-    setEditingEmployee(null);
+    setEditingEmployeeIndex(null);
   };
 
   const saveEditedEmployee = (area: string, index: number, field: string, value: string | number) => {
     editarEmpleado(area, index, field, value);
-    setEditingEmployee(null);
+    setEditingEmployeeIndex(null);
+  };
+
+  const renderEmployeeActions = (nombreArea: string, index: number, empleado: Employee) => {
+    if (editingEmployeeIndex?.area === nombreArea && editingEmployeeIndex.index === index) {
+      return (
+        <>
+          <input
+            type="text"
+            value={empleado.nombre}
+            onChange={(e) => editarEmpleado(nombreArea, index, 'nombre', e.target.value)}
+          />
+          <input
+            type="number"
+            value={empleado.horas}
+            onChange={(e) => editarEmpleado(nombreArea, index, 'horas', parseFloat(e.target.value))}
+          />
+          <button onClick={() => saveEditedEmployee(nombreArea, index, 'propinas', empleado.propinas)}>Guardar</button>
+          <button onClick={cancelEditEmployee}>Cancelar</button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <button onClick={() => handleEditEmployee(nombreArea, index)}>Editar</button>
+          <button onClick={() => eliminarEmpleado(nombreArea, index)}>Eliminar</button>
+        </>
+      );
+    }
   };
 
   return (
@@ -40,7 +79,7 @@ const TipAreaList: React.FC<TipAreaListProps> = ({ areas, eliminarArea, editarEm
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="employee-table animate"
             >
               <div className="employee-cards">
@@ -52,27 +91,7 @@ const TipAreaList: React.FC<TipAreaListProps> = ({ areas, eliminarArea, editarEm
                       <p><strong>Propinas:</strong> ${empleado.propinas.toFixed(2)}</p>
                     </div>
                     <div className="employee-actions">
-                      {editingEmployee?.area === nombreArea && editingEmployee.index === index ? (
-                        <>
-                          <input
-                            type="text"
-                            value={empleado.nombre}
-                            onChange={(e) => editarEmpleado(nombreArea, index, "nombre", e.target.value)}
-                          />
-                          <input
-                            type="number"
-                            value={empleado.horas}
-                            onChange={(e) => editarEmpleado(nombreArea, index, "horas", parseFloat(e.target.value))}
-                          />
-                          <button onClick={() => saveEditedEmployee(nombreArea, index, "propinas", empleado.propinas)}>Guardar</button>
-                          <button onClick={cancelEditEmployee}>Cancelar</button>
-                        </>
-                      ) : (
-                        <>
-                          <button onClick={() => handleEditEmployee(nombreArea, index)}>Editar</button>
-                          <button onClick={() => eliminarEmpleado(nombreArea, index)}>Eliminar</button>
-                        </>
-                      )}
+                      {renderEmployeeActions(nombreArea, index, empleado)}
                     </div>
                   </div>
                 ))}

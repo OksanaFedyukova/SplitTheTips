@@ -8,8 +8,20 @@ import './App.css';
 
 const MAX_PERCENTAGE = 100;
 
+
+
 const App: React.FC = () => {
-  const [areas, setAreas] = useState<Record<string, { porcentaje: number; empleados: { nombre: string; horas: number; propinas: number }[] }>>({});
+  type Area = {
+    porcentaje: number;
+    empleados: {
+      nombre: string;
+      horas: number;
+      propinas: number;
+    }[];
+  };
+  
+  const [areas, setAreas] = useState<Record<string, Area>>({});
+  
   const [totalPropinas, setTotalPropinas] = useState<number>(0);
   const [mensajeError, setMensajeError] = useState<string>('');
   const [mostrarAgregarArea, setMostrarAgregarArea] = useState<boolean>(false);
@@ -32,13 +44,13 @@ const App: React.FC = () => {
     }
   }, []);
 
-  const guardarAreasEnLocalStorage = (areas: Record<string, { porcentaje: number; empleados: { nombre: string; horas: number; propinas: number }[] }>) => {
+  const guardarAreasEnLocalStorage = (nuevasAreas: Record<string, Area>) => {
     try {
-      localStorage.setItem('areas', JSON.stringify(areas));
+      localStorage.setItem('areas', JSON.stringify(nuevasAreas));
     } catch (error) {
       console.error('Error al guardar en localStorage:', error);
     }
-  };
+  };  
 
   const mostrarMensaje = (mensaje: string) => {
     setMensajeError(mensaje);
@@ -61,9 +73,7 @@ const App: React.FC = () => {
     }
 
     const nuevasAreas = { ...areas, [nombre]: { porcentaje, empleados: [] } };
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
-    setMostrarAgregarArea(false);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Área agregada exitosamente.");
   };
 
@@ -87,19 +97,22 @@ const App: React.FC = () => {
 
     const nuevoEmpleadoData = { nombre, horas, propinas: 0 };
     const nuevasAreas = { ...areas, [area]: { ...areas[area], empleados: [...areas[area].empleados, nuevoEmpleadoData] } };
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
-    setMostrarAgregarEmpleado(false);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Empleado agregado exitosamente.");
   };
 
   const eliminarArea = (nombreArea: string) => {
     const nuevasAreas = { ...areas };
     delete nuevasAreas[nombreArea];
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Área eliminada exitosamente.");
   };
+
+  const actualizarAreas = (nuevasAreas: Record<string, Area>) => {
+    setAreas(nuevasAreas);
+    guardarAreasEnLocalStorage(nuevasAreas);
+  };
+  
 
   const editarEmpleado = (area: string, index: number, field: string, value: string | number) => {
     const nuevasAreas = { ...areas };
@@ -108,16 +121,14 @@ const App: React.FC = () => {
     } else if (field === 'horas') {
       nuevasAreas[area].empleados[index].horas = parseFloat(value as string);
     }
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Empleado actualizado exitosamente.");
   };
 
   const eliminarEmpleado = (area: string, index: number) => {
     const nuevasAreas = { ...areas };
     nuevasAreas[area].empleados.splice(index, 1);
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Empleado eliminado exitosamente.");
   };
 
@@ -143,8 +154,7 @@ const App: React.FC = () => {
       nuevasAreas[nombreArea] = { ...datosArea, empleados: nuevosEmpleados };
     });
 
-    setAreas(nuevasAreas);
-    guardarAreasEnLocalStorage(nuevasAreas);
+    actualizarAreas(nuevasAreas);
     mostrarMensaje("Distribución calculada exitosamente.");
   };
 
@@ -163,7 +173,6 @@ const App: React.FC = () => {
       <div className="content">
         <div className="box">
           <div className="box-content">
-            {/* Botones para agregar empleados y áreas */}
             <div className="actions">
               <button
                 className='add-button custom-button'
@@ -205,7 +214,6 @@ const App: React.FC = () => {
         </div>
         <div className="box">
           <div className="box-content">
-            {/* Input para total de propinas y botón de cálculo */}
             <div className="total-propinas">
               <div className='input-wrapper'>
                 <input
@@ -225,12 +233,11 @@ const App: React.FC = () => {
             </div>
           </div>
         </div>
-              {mensajeError && (
-                <ErrorMessage mensajeError={mensajeError} />
-              )}
+        {mensajeError && (
+          <ErrorMessage mensajeError={mensajeError} />
+        )}
         <div className="box">
           <div className="box-content">
-            {/* Sección para mostrar empleados */}
             <AnimatePresence>
               <TipAreaList
                 areas={areas}
@@ -247,4 +254,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

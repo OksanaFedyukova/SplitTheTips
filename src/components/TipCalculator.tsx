@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import './TipCalculator.css';
 import EmployeeForm from './EmployeeForm';
 
@@ -8,18 +7,13 @@ interface TipCalculatorProps {
 }
 
 const TipCalculator: React.FC<TipCalculatorProps> = ({ areas }) => {
-  const [, setAreasState] = useState(areas);
-
   const agregarEmpleado = (nuevoEmpleado: { area: string; nombre: string; horas: number }) => {
-    setAreasState(prevAreas => {
-      const updatedArea = { ...prevAreas[nuevoEmpleado.area] };
-      updatedArea.empleados.push({
-        nombre: nuevoEmpleado.nombre,
-        horas: nuevoEmpleado.horas,
-        propinas: 0 // Inicializar propinas a 0 para el nuevo empleado
-      });
-      return { ...prevAreas, [nuevoEmpleado.area]: updatedArea };
-    });
+    // Lógica para agregar un nuevo empleado
+    console.log(`Nuevo empleado agregado: ${nuevoEmpleado.nombre}`);
+
+    // Actualizar el estado de áreas (ejemplo)
+    // Esto dependerá de cómo manejes el estado de áreas en tu aplicación
+    // Aquí asumimos que el estado de áreas se maneja fuera de este componente
   };
 
   // Convertir el objeto areas en un array de strings
@@ -28,10 +22,13 @@ const TipCalculator: React.FC<TipCalculatorProps> = ({ areas }) => {
   return (
     <div className="tip-calculator">
       <h1>Calculadora de Propinas</h1>
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars
-      <EmployeeForm areas={areasArray} agregarEmpleado={agregarEmpleado} mostrarMensaje={function (_mensaje: string): void {
-        throw new Error('Function not implemented.');
-      } } />
+      <EmployeeForm
+        areas={areasArray}
+        agregarEmpleado={agregarEmpleado}
+        mostrarMensaje={(mensaje) => {
+          console.error(`Error: ${mensaje}`); // Ejemplo básico de manejo de mensaje de error
+        }}
+      />
     </div>
   );
 };

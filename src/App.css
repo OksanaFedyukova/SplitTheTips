@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+/* app.css */
 
 /* General Styles */
 .app-container {
@@ -83,7 +83,7 @@ header {
 .add-button,
 .custom-button {
   background-color: var(--clr-button);
-  border: 1px;
+  border: 1px solid transparent; /* Corregido */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   color: var(--clr-text);
   padding: 10px 20px;
@@ -272,7 +272,7 @@ header {
 }
 
 .box {
-  background-color: #ffffff54; /* Blanco */
+  background-color: #ffffff54;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.219);

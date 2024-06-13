@@ -1,3 +1,4 @@
+// ErrorMessage.tsx
 import React, { useState, useEffect } from 'react';
 import './ErrorMessage.css';
 
@@ -11,15 +12,20 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ mensajeError }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setVisible(false);
-    }, 5000); // Cambia 5000 por el tiempo deseado en milisegundos
+    }, 5000); // Cambiar 5000 por el tiempo deseado en milisegundos
+
     return () => clearTimeout(timeout);
   }, [mensajeError]);
 
-  return mensajeError ? (
+  if (!mensajeError) {
+    return null;
+  }
+
+  return (
     <div className={`custom-error-message ${visible ? 'show' : ''}`}>
       {mensajeError}
     </div>
-  ) : null;
+  );
 };
 
 export default ErrorMessage;

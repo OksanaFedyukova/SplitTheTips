@@ -1,22 +1,21 @@
-/* ErrorMessage.css */
 .custom-error-message {
-    background-color: var(--clr-secondary); /* Cambiado al color secundario */
-    color: var(--clr-text); /* Cambiado al color de texto principal */
-    padding: 0.5rem 1rem; /* Ajuste de relleno */
-    border-radius: 8px; /* Ajuste de borde redondeado */
+    background-color: var(--clr-secondary);
+    color: var(--clr-text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Modificado el color de la sombra */
-    opacity: 0; /* Inicialmente oculto */
-    transform: translateY(-10px); /* Mover hacia arriba */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Hacer la transición más suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     width: 100%;
-    display: flex; /* Agregar */
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
 .custom-error-message.show {
-    opacity: 1; /* Mostrar */
-    transform: translateY(0); /* Volver a la posición original */
+    opacity: 1;
+    transform: translateY(0);
 }

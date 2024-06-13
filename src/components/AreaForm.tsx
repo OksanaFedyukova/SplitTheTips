@@ -18,15 +18,18 @@ const AreaForm: React.FC<AreaFormProps> = ({ agregarArea, mostrarMensaje, areasE
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const porcentaje = parseFloat(nuevaArea.porcentaje.toString());
-    if (!nuevaArea.nombre.trim() || isNaN(porcentaje) || porcentaje < 0 || porcentaje > 100) {
-      mostrarMensaje("Por favor, complete todos los campos correctamente y asegúrese de que el porcentaje esté entre 1 y 100.");
+    const { nombre, porcentaje } = nuevaArea;
+
+    if (!nombre.trim() || isNaN(porcentaje) || porcentaje < 0 || porcentaje > 100) {
+      mostrarMensaje("Por favor, complete todos los campos correctamente y asegúrese de que el porcentaje esté entre 0 y 100.");
       return;
     }
-    if (areasExistente.some(area => area.nombre === nuevaArea.nombre)) {
+
+    if (areasExistente.some(area => area.nombre === nombre)) {
       mostrarMensaje("El nombre del área ya existe. Por favor, elija un nombre único.");
       return;
     }
+
     agregarArea(nuevaArea);
     setNuevaArea({ nombre: '', porcentaje: 0 });
   };

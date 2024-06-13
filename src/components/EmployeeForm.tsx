@@ -22,11 +22,17 @@ const EmployeeForm: React.FC<EmployeeFormProps> = ({ areas, agregarEmpleado, mos
     setNuevoEmpleado({ area: '', nombre: '', horas: 0 });
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setNuevoEmpleado({ ...nuevoEmpleado, [name]: name === 'horas' ? parseFloat(value) : value });
+  };
+
   return (
     <form onSubmit={handleSubmit} className="employee-form-container">
       <select
+        name="area"
         value={nuevoEmpleado.area}
-        onChange={(e) => setNuevoEmpleado({ ...nuevoEmpleado, area: e.target.value })}
+        onChange={handleChange}
         className="custom-select"
       >
         <option value="">Seleccionar Área</option>
@@ -38,15 +44,17 @@ const EmployeeForm: React.FC<EmployeeFormProps> = ({ areas, agregarEmpleado, mos
       </select>
       <input
         type="text"
+        name="nombre"
         value={nuevoEmpleado.nombre}
-        onChange={(e) => setNuevoEmpleado({ ...nuevoEmpleado, nombre: e.target.value })}
+        onChange={handleChange}
         className="custom-input"
         placeholder="Nombre del Empleado"
       />
       <input
         type="number"
+        name="horas"
         value={nuevoEmpleado.horas.toString()}
-        onChange={(e) => setNuevoEmpleado({ ...nuevoEmpleado, horas: parseFloat(e.target.value) })}
+        onChange={handleChange}
         className="custom-input"
         placeholder="Horas trabajadas"
       />

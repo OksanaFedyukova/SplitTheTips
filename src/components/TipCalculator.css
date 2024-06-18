@@ -4,6 +4,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--clr-text);
 }
 
 .form-space {
@@ -13,21 +14,21 @@
 }
 
 .form-input {
-    border: 1px solid #ddd;
+    border: 1px solid var(--clr-input-border);
     border-radius: 0.25rem;
-    color: #333;
+    color: var(--clr-text); 
     padding: 0.5rem;
     outline: none;
     width: 100%;
 }
 
 .form-input::placeholder {
-    color: #888;
+    color: var(--clr-placeholder); 
 }
 
 .form-button {
-    background-color: #000;
-    color: white;
+    background-color: var(--clr-button); 
+    color: var(--clr-text); 
     padding: 0.75rem;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -37,5 +38,5 @@
 }
 
 .form-button:hover {
-    background-color: #020202;
+    background-color: var(--clr-button-hover); 
 }

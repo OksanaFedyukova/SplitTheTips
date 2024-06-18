@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
-
 /* TipAreaList.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
 
 .tip-area-list {
   display: flex;
@@ -10,9 +10,9 @@
 
 .tip-area-container {
   border-radius: 8px;
-  background-color: var(--clr-background); /* Cambiado al color de fondo principal */
+  background-color: var(--clr-background); /* Uso de la variable de color principal */
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Modificado el color de la sombra */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajuste de la sombra */
   margin-top: 2rem;
 }
 
@@ -25,7 +25,7 @@
 .area-title {
   margin: 0;
   font-size: 1.5rem;
-  color: var(--clr-text); /* Cambiado al color de texto principal */
+  color: var(--clr-text); /* Uso de la variable de color principal */
   font-family: "Kanit", sans-serif;
 }
 
@@ -33,12 +33,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #ff4d4f; /* Cambiado al color secundario */
+  color: var(--clr-secondary); /* Uso de la variable de color secundario */
   transition: color 0.5s ease;
 }
 
 .delete-area-button:hover {
-  color: #f58a8c; /* Color de botón de eliminación en hover */
+  color: var(--clr-secondary-hover); /* Uso de la variable de color secundario en hover */
 }
 
 .grid-container {
@@ -49,7 +49,8 @@
 .section-title {
   margin: 0;
   font-size: 1.2rem;
-  color: var(--clr-text); /* Cambiado al color de texto principal */
+  color: var(--clr-text); /* Uso de la variable de color principal */
+  font-family: "Kanit", sans-serif;
 }
 
 .employee-cards {
@@ -61,14 +62,14 @@
 
 .employee-card {
   border-radius: 8px;
-  background-color: rgba(213, 215, 218, 0.427); /* Cambiado al color de fondo principal */
+  background-color: rgba(213, 215, 218, 0.427); /* Ajuste de color de fondo */
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.377); /* Modificado el color de la sombra */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.377); /* Ajuste de la sombra */
 }
 
 .employee-info p {
   margin: 5px 0;
-  color: var(--clr-text); /* Cambiado al color de texto principal */
+  color: var(--clr-text); /* Uso de la variable de color principal */
   font-family: "Kanit", sans-serif;
   font-size: 1rem;
 }
@@ -85,19 +86,19 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: var(--clr-button); /* Cambiado al color de botón */
-  color: var(--clr-text); /* Cambiado al color de texto principal */
+  background-color: var(--clr-button); /* Uso de la variable de color de botón */
+  color: var(--clr-text); /* Uso de la variable de color principal */
   font-size: 14px;
   font-family: "Kanit", sans-serif;
 }
 
 .employee-actions button:hover {
-  background-color: var(--clr-button-hover); /* Cambiado al color de botón en hover */
+  background-color: var(--clr-button-hover); /* Uso de la variable de color de botón en hover */
 }
 
 .employee-actions input {
   margin-bottom: 5px;
   padding: 8px;
   border-radius: 10px;
-  border: 1px solid rgba(40, 75, 190, 0.144); /* Modificado el color del borde */
+  border: 1px solid rgba(40, 75, 190, 0.144); /* Ajuste del color del borde */
 }

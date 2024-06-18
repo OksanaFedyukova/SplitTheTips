@@ -7,8 +7,8 @@
 }
 
 .custom-input {
-  border: 1px solid #ddd;
-  color: #333;
+  border: 1px solid var(--clr-input-border);
+  color: var(--clr-text);
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   outline: none;
@@ -20,22 +20,22 @@
 }
 
 .custom-input:focus {
-  border-color: #4caf50;
+  border-color: var(--clr-input-underline);
 }
 
 .custom-button {
-  background-color: #4caf50;
+  background-color: var(--clr-button);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.25rem;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: background-color 0.15s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .custom-button:hover {
-  background-color: #43a047;
+  background-color: var(--clr-button-hover);
   transform: translateY(-2px);
 }
 

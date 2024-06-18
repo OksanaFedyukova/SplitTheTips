@@ -1,4 +1,3 @@
-// useAreaHandlers.tsx
 import { useState, useEffect, useCallback } from 'react';
 import { Area } from '../components/AreaComponent/types';
 import { useApiService } from './useApiService';

@@ -1,36 +1,43 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Area } from './types';
-import './AreaComponent.css';
-import { AreaService } from './AreaService';
+import React from 'react';
+import AreaList from './AreaList';
+import CreateArea from './CreateArea';
+import EditArea from './EditArea';
+import useAreaHandlers from '../../hooks/useAreaHandlers';
+import AreaSelect from './AreaSelect';
 
 const AreaComponent: React.FC = () => {
-  const [areas, setAreas] = useState<Area[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  const areaService = useMemo(() => new AreaService(), []);
-
-  useEffect(() => {
-    const fetchAreas = async () => {
-      const data = await areaService.getAll();
-      setAreas(data);
-      setLoading(false);
-    };
-
-    fetchAreas();
-  }, [areaService]);
+  const {
+    areas,
+    selectedArea,
+    loading,
+    error,
+    setSelectedArea,
+    handleCreateArea,
+    handleUpdateArea,
+    handleDeleteArea
+  } = useAreaHandlers();
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className="area-component">
-      <h2>Areas</h2>
-      <ul>
-        {areas.map((area) => (
-          <li key={area.id}>{area.title}</li>
-        ))}
-      </ul>
+    <div> 
+     <AreaSelect areas={areas}/>
+      <AreaList areas={areas} onEdit={setSelectedArea} onDelete={handleDeleteArea} />
+      <CreateArea onCreate={handleCreateArea} />
+      
+      {selectedArea && (
+        <EditArea
+          area={selectedArea}
+          onUpdate={handleUpdateArea}
+          onChange={setSelectedArea}
+        />
+      )}
     </div>
   );
 };

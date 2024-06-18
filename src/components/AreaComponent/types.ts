@@ -1,6 +1,7 @@
 
 export interface Area {
     id: number;
-    name: string;
+    title: string;
+    percentage:number;
   }
   

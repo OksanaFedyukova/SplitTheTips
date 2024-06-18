@@ -1,7 +1,6 @@
 import { ApiService } from '../../services/ApiServices';
 import { Area } from './types';
 
-//const BASE_URL = process.env.BASE_URL;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 

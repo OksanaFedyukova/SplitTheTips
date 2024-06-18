@@ -1,0 +1,14 @@
+{
+    "areas": [
+      { "id": "1", "title": "beauty", "percentage": "10%" },
+      { "id": "2", "title": "restaurant", "percentage": "15%" }
+    ],
+    "employees": [
+      { "id": "1", "name": "Oscar", "hours": 2 },
+      { "id": "2", "name": "Pedro", "hours": 5 }
+    ],
+    "users": [
+        { "id": "1", "name": "Maria", "position": "superviser" },
+        { "id": "2", "name": "Nikola", "position": "manager" }
+      ]
+  }

@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css'; 
 //import { UserProvider } from './contexts/UserContext';
 import AreaComponent from './components/AreaComponent/AreaComponent';
+import FirebaseAuth from './components/FirebaseAuth/FirebaseAuth'
 
 const App: React.FC = () => {
   return (
@@ -11,9 +12,9 @@ const App: React.FC = () => {
           <h1>Tips</h1>
         </header>
         <main>
-        <main>
+          <FirebaseAuth />
           <AreaComponent />
-        </main>
+
         </main>
       </div>
   );

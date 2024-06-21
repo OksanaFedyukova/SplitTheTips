@@ -1,85 +1,56 @@
 
-### Userflow para una Aplicación de Calculadora de Propinas
 
-#### 1. **Inicio**
+### Userflow para App de Gestión de Propinas entre Empleados
 
-- **Pantalla de Bienvenida**
-  - Botón "Comenzar" para ingresar a la aplicación.
+#### 1. **Inicio y Registro de Propinas:**
+   - **Pantalla Principal:**
+     - El jefe abre la app.
+     - Se muestra una opción para registrar las propinas recibidas durante el día.
 
-#### 2. **Pantalla Principal**
+#### 2. **Registrar Propinas del Día:**
+   - **Formulario de Registro:**
+     - El jefe selecciona "Registrar Propinas del Día".
+     - Ingresa el monto total de propinas recibidas ese día.
+     - Puede añadir una breve nota sobre el día (opcional).
 
-- **Entrada de Datos**
-  - Campo de texto para ingresar el monto total de la cuenta.
-  - Campo de texto o selector para ingresar el porcentaje de la propina.
-  - Campo de texto o selector para ingresar el número de personas que compartirán la cuenta (opcional).
+#### 3. **Detalle de Propinas:**
+   - **Agregar Detalle por Empleado:**
+     - Después de ingresar el monto total, el jefe procede a distribuir las propinas entre los empleados según las horas trabajadas.
+     - Para cada empleado, ingresa las horas trabajadas y automáticamente se calcula la propina correspondiente basada en la proporción de horas trabajadas respecto al total de horas trabajadas ese día por todos los empleados.
+     - Opcionalmente, puede añadir una nota adicional para cada empleado.
 
-- **Botones de Acciones**
-  - Botón "Calcular" para iniciar el cálculo de la propina.
-  - Botón "Restablecer" para limpiar los campos de entrada.
+#### 4. **Guardar y Distribuir Propinas:**
+   - **Confirmación:**
+     - El jefe confirma los detalles ingresados.
+     - La app guarda la información de propinas desglosada por empleado junto con la fecha y hora del registro.
 
-#### 3. **Pantalla de Resultados**
+#### 5. **Ver Historial de Propinas:**
+   - **Lista de Propinas Anteriores:**
+     - El jefe puede acceder a un historial de propinas anteriores.
+     - Se muestra una lista de todos los registros anteriores con el monto total de propinas recibidas y el desglose por empleado.
 
-- **Resultados del Cálculo**
-  - Mostrar el monto de la propina.
-  - Mostrar el monto total (cuenta + propina).
-  - Mostrar el monto que cada persona debe pagar (si se ingresó el número de personas).
+#### 6. **Estadísticas y Reportes:**
+   - **Análisis de Propinas:**
+     - Desde el historial, el jefe puede ver estadísticas detalladas.
+     - Puede revisar el total acumulado de propinas recibidas en un período específico (por día, semana, mes).
+     - Se incluye una visualización gráfica para mostrar la distribución de propinas entre empleados.
 
-- **Opciones**
-  - Botón "Volver" para regresar a la pantalla principal y realizar otro cálculo.
-  - Botón "Compartir" para compartir el resultado a través de redes sociales o mensajería (opcional).
+#### 7. **Configuración y Personalización:**
+   - **Preferencias de la App:**
+     - Opción para configurar notificaciones (por ejemplo, recordatorio diario para registrar propinas).
+     - Personalización de la interfaz (temas de color, preferencias de visualización).
 
-#### 4. **Configuraciones y Preferencias (Opcional)**
+#### 8. **Seguridad y Privacidad:**
+   - **Gestión de Datos Segura:**
+     - La app garantiza la seguridad de los datos personales y financieros de los empleados y del jefe.
+     - Acceso protegido con contraseña o autenticación biométrica.
 
-- **Opciones de Configuración**
-  - Ajustes predeterminados para el porcentaje de propina.
-  - Configuración del tema de la aplicación (modo claro/oscuro).
-  - Opción de elegir la moneda.
+#### 9. **Exportar y Compartir Informes:**
+   - **Exportación de Datos:**
+     - Funcionalidad para exportar el historial de propinas en formatos como CSV o PDF.
+     - Facilidad para compartir datos con los empleados o la administración para fines de contabilidad o informes.
 
-- **Botón de Guardar Preferencias**
-
-#### 5. **Pantalla de Información (Opcional)**
-
-- **Ayuda y Soporte**
-  - Instrucciones sobre cómo usar la aplicación.
-  - Preguntas frecuentes (FAQs).
-  - Información de contacto para soporte.
-
-### Detalles del Flujo de Usuario
-
-#### Pantalla de Bienvenida
-
-1. El usuario abre la aplicación.
-2. Se presenta una pantalla de bienvenida con un botón "Comenzar".
-3. El usuario pulsa "Comenzar" y es llevado a la pantalla principal.
-
-#### Pantalla Principal
-
-4. El usuario ve campos para ingresar el monto de la cuenta, el porcentaje de la propina y el número de personas.
-5. El usuario ingresa el monto total de la cuenta.
-6. El usuario ingresa o selecciona el porcentaje de la propina.
-7. (Opcional) El usuario ingresa o selecciona el número de personas que compartirán la cuenta.
-8. El usuario pulsa el botón "Calcular".
-
-#### Pantalla de Resultados
-
-9. La aplicación muestra el monto de la propina calculada.
-10. La aplicación muestra el monto total a pagar (cuenta + propina).
-11. (Opcional) La aplicación muestra el monto que cada persona debe pagar.
-12. El usuario tiene la opción de pulsar "Volver" para regresar a la pantalla principal o "Compartir" para compartir el resultado.
-
-#### Configuraciones y Preferencias
-
-13. (Opcional) El usuario puede acceder a las configuraciones desde la pantalla principal.
-14. El usuario puede ajustar las preferencias, como el porcentaje de propina predeterminado y el tema de la aplicación.
-15. El usuario guarda las preferencias y regresa a la pantalla principal.
-
-#### Pantalla de Información
-
-16. (Opcional) El usuario puede acceder a la pantalla de información para obtener ayuda y soporte.
-
-### Consideraciones Adicionales
-
-- **Validación de Datos**: Asegúrate de que los campos de entrada validen los datos (por ejemplo, que el monto de la cuenta sea un número positivo).
-- **Mensajes de Error**: Si el usuario deja un campo obligatorio vacío, muestra un mensaje de error amigable.
-- **Experiencia de Usuario**: La interfaz debe ser intuitiva y fácil de usar, con botones y campos claramente etiquetados.
-
+#### 10. **Feedback y Mejoras:**
+   - **Recopilación de Feedback:**
+     - Los usuarios (jefe y empleados) pueden enviar comentarios y sugerencias.
+     - Se incluye un proceso de retroalimentación para mejorar la app y agregar nuevas funcionalidades según sea necesario.
